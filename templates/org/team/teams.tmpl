@@ -14,7 +14,7 @@
 			{{range .Teams}}
 				<div class="column">
 					<div class="ui top attached header">
-						<a class="text black" href="{{$.OrgLink}}/teams/{{.LowerName | PathEscape}}"><strong>{{.Name}}</strong></a>
+						<strong>{{.Name}}</strong>
 						<div class="ui right">
 							<a class="btn ui primary small button" href="{{$.OrgLink}}/teams/{{.LowerName | PathEscape}}">{{ctx.Locale.Tr "org.teams.view"}}</a>
 							{{if .IsMember ctx $.SignedUser.ID}}
@@ -37,7 +37,7 @@
 						{{end}}
 					</div>
 					<div class="ui bottom attached header">
-						<p class="team-meta">{{.NumMembers}} {{ctx.Locale.Tr "org.lower_members"}} · {{.NumRepos}} {{ctx.Locale.Tr "org.lower_repositories"}}</p>
+						<p class="team-meta"><a class="muted" href="{{$.OrgLink}}/teams/{{.LowerName | PathEscape}}">{{.NumMembers}} {{ctx.Locale.Tr "org.lower_members"}}</a> · <a class="muted" href="{{$.OrgLink}}/teams/{{.LowerName | PathEscape}}/repositories">{{.NumRepos}} {{ctx.Locale.Tr "org.lower_repositories"}}</a></p>
 					</div>
 				</div>
 			{{end}}
